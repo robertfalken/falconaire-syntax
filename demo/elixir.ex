@@ -13,4 +13,6 @@ defmodule Falconaire.Demo do
           ret <- do_something_else(ret),
       do: {:ok, ret}
   end
+
+  def my_string, do: "Just a #{string}\n"
 end

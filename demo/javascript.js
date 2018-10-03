@@ -1,24 +1,26 @@
 // Just some random code to demo what the theme sort of look like
-import something, { somethingElse } from './something'
+import something, { somethingElse } from './something';
 
 const object = {
-  doubleQuote: "value"
+  doubleQuote: "value with \"escaped characters\""
   singleQuote: 'single quote string'
   template: `${interpolated} template string`
-}
-let number = 0
-number++
+};
+let number = 0;
+
+number++;
 
 const GRAPHQL_QUERY = gql`
   query FetchItem($id: ID!) {
     id
     name
   }
-`
-const array = [1, 2, 3]
+`;
+
+const array = [1, 2, 3];
 
 function myFn(param1, param2) {
-  return null
+  return null;
 }
 
 const function = () => {
@@ -31,7 +33,7 @@ const arrowFunction({ param1, ...rest }) => ({
   one: 1,
   "two": 2,
   three,
-})
+});
 
 const FnComponent = () => (<div>Falconaire!</div>)
 class Component extends React.Component {
@@ -51,4 +53,4 @@ class Component extends React.Component {
   }
 }
 
-const ternary = bool => bool ? true : false
+const ternary = bool => bool ? true : false;

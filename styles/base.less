@@ -5,6 +5,17 @@
   font-style: italic;
 }
 
+._classish { color: @APRICOT_LIGHT; }
+._variables { color: @LAVANDER; }
+._syntax { color: @WHITE; }
+._flow-control { color: @PINK; }
+._surrounding-strings { color: @GREEN_DARK; }
+._special-string-chars { color: @GREEN_LIGHT; }
+._atom {
+  color: @BLUE_SKY_LIGHT;
+  font-style: normal;
+}
+
 atom-text-editor {
   background-color: @syntax-background-color;
   color: @syntax-text-color;
@@ -35,7 +46,7 @@ atom-text-editor {
 
     .line-number {
       &.cursor-line {
-        background-color: @syntax-gutter-background-color-selected;
+        background-color: @BACKGROUND_LIGHT;
         color: @syntax-gutter-text-color-selected;
       }
 
@@ -48,7 +59,7 @@ atom-text-editor {
   .gutter .line-number.folded,
   .gutter .line-number:after,
   .fold-marker:after {
-    color: @light-gray;
+    color: @GRAY_LIGHT;
   }
 
   .invisible {
@@ -62,6 +73,7 @@ atom-text-editor {
   .selection .region {
     background-color: @syntax-selection-color;
   }
+
 }
 
 // Syntax styles
@@ -79,7 +91,7 @@ atom-text-editor {
   }
 
   &.syntax--generator.syntax--asterisk {
-    color: @pink;
+    color: @PINK;
   }
 }
 
@@ -89,10 +101,11 @@ atom-text-editor {
 }
 
 .syntax--constant {
-  color: @red;
+  color: @APRICOT;
+  font-style: italic;
 
   &.syntax--character.syntax--escape {
-    color: @cyan;
+    color: @GREEN_LIGHT;
   }
 
   &.syntax--numeric {
@@ -109,15 +122,7 @@ atom-text-editor {
 }
 
 .syntax--variable {
-  color: @pink;
-
-  &.syntax--interpolation {
-    color: darken(@red, 10%);
-  }
-
-  &.syntax--parameter.syntax--function {
-    color: @syntax-text-color;
-  }
+  ._variables;
 }
 
 .syntax--invalid.syntax--illegal {
@@ -246,11 +251,6 @@ atom-text-editor {
   &.syntax--selector {
     color: @LAVANDER;
   }
-
-  &.syntax--separator {
-    background-color: @gray;
-    color: @syntax-text-color;
-  }
 }
 
 .syntax--none {
@@ -297,31 +297,22 @@ atom-text-editor {
   }
 }
 
-.syntax--source.syntax--gfm .syntax--markup {
-  -webkit-font-smoothing: auto;
-  &.syntax--heading {
-    color: @green;
-  }
-}
-
+.syntax--punctuation.syntax--definition.syntax--quasi,
 .syntax--punctuation.syntax--definition.syntax--string {
-  color: @green-dark;
+  ._surrounding-strings;
 }
 
 .syntax--punctuation.syntax--quasi.syntax--element {
-  color: @green-dark;
-}
-
-.syntax--punctuation.syntax--definition.syntax--quasi {
-  color: @green-dark;
+  color: @GREEN_LIGHT;
 }
 
 .syntax--string.syntax--unquoted {
   color: @GRAY_LIGHTEST;
+  font-style: normal;
 }
 
 .syntax--keyword.syntax--control.syntax--flow {
-  color: @APRICOT;
+  ._flow-control;
 }
 
 .syntax--JSXNested {
@@ -330,7 +321,7 @@ atom-text-editor {
 
 .syntax--entity.syntax--name.syntax--class,
 .syntax--entity.syntax--name.syntax--function {
-  color: @LAVANDER;
+  ._classish;
 }
 
 .syntax--source.syntax--jsx {
@@ -346,10 +337,27 @@ atom-text-editor {
 .syntax--meta.syntax--brace.syntax--square,
 .syntax--meta.syntax--brace.syntax--curly,
 .syntax--meta.syntax--delimiter.syntax--comma {
-  color: @WHITE;
+  ._syntax;
 }
+.syntax--punctuation.syntax--terminator.syntax--statement {
+  color: @GRAY_LIGHTER;
+}
+
 .syntax--punctuation.syntax--section.syntax--embedded.syntax--jsx {
   color: @BLUE_SKY;
+}
+
+atom-text-editor .line.cursor-line.highlight-line {
+  background-color: @BACKGROUND_LIGHT;
+}
+
+.syntax--entity.syntax--name.syntax--type {
+  text-decoration: none;
+  color: @APRICOT;
+}
+
+.syntax--punctuation.syntax--section.syntax--embedded {
+  ._special-string-chars;
 }
 
 // Elixir start
@@ -357,11 +365,42 @@ atom-text-editor {
   &.syntax--keyword.syntax--control {
     color: @LAVANDER_LIGHT;
   }
+  .syntax--constant.syntax--other.syntax--symbol {
+    ._atom;
+  }
+  .syntax--keyword.syntax--operator.syntax--other {
+    color: @PINK;
+  }
+  .syntax--variable.syntax--other.syntax--constant {
+    color: @APRICOT;
+  }
 }
 // Elixir end
 
-// Mini editor
 
-atom-text-editor[mini] .scroll-view {
-  padding-left: 1px;
+// Ruby start
+.syntax--ruby {
+  .syntax--keyword.syntax--control.syntax--class {
+    font-style: italic;
+    color: @LAVANDER_LIGHT;
+  }
+  .syntax--keyword.syntax--operator.syntax--arithmetic {
+    color: @PINK;
+  }
+  .syntax--constant.syntax--other.syntax--symbol {
+    ._atom;
+  }
+  .syntax--punctuation.syntax--section.syntax--array {
+    color: @BLUE_SKY;
+  }
+  .syntax--string.syntax--quoted.syntax--other {
+    color: @BLUE_SKY_LIGHT;
+  }
+  .syntax--entity.syntax--other.syntax--inherited-class {
+    color: @PINK_DARKER;
+  }
+  .syntax--variable.syntax--other.syntax--constant {
+    color: @APRICOT_LIGHT;
+  }
 }
+// Ruby end
