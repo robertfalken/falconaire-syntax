@@ -1,10 +1,9 @@
 @import "syntax-variables";
 
-._keywords {
-  color: @LAVANDER_LIGHT;
-  font-style: italic;
-}
-
+._literal { color: @BLUE_SKY_LIGHT; }
+._literal-_surroundings { color: @BLUE_SKY; }
+._instance-var { color: @PINK; }
+._instance-var-syntax { color: @PINK_LIGHT; }
 ._classish { color: @APRICOT_LIGHT; }
 ._variables { color: @LAVANDER; }
 ._syntax { color: @WHITE; }
@@ -95,14 +94,8 @@ atom-text-editor {
   }
 }
 
-.syntax--keyword.syntax--control.syntax--module,
-.syntax--storage {
-  ._keywords;
-}
-
 .syntax--constant {
   color: @APRICOT;
-  font-style: italic;
 
   &.syntax--character.syntax--escape {
     color: @GREEN_LIGHT;
@@ -360,11 +353,29 @@ atom-text-editor .line.cursor-line.highlight-line {
   ._special-string-chars;
 }
 
+.syntax--variable.syntax--other.syntax--readwrite.syntax--instance {
+  color: @PINK;
+  .syntax--punctuation.syntax--definition.syntax--variable {
+    color: @PINK_LIGHT;
+  }
+}
+
+.syntax--keyword.syntax--control {
+  color: @LAVANDER_LIGHT;
+}
+
+// Literals
+.syntax--punctuation.syntax--section.syntax--list.syntax--elixir,
+.syntax--punctuation.syntax--section.syntax--array {
+  ._literal-_surroundings;
+}
+.syntax--string.syntax--quoted.syntax--double.syntax--interpolated.syntax--elixir,
+.syntax--string.syntax--quoted.syntax--other {
+  ._literal;
+}
+
 // Elixir start
 .syntax--elixir {
-  &.syntax--keyword.syntax--control {
-    color: @LAVANDER_LIGHT;
-  }
   .syntax--constant.syntax--other.syntax--symbol {
     ._atom;
   }
@@ -373,6 +384,15 @@ atom-text-editor .line.cursor-line.highlight-line {
   }
   .syntax--variable.syntax--other.syntax--constant {
     color: @APRICOT;
+  }
+  .syntax--punctuation.syntax--definition.syntax--variable {
+    ._instance-var-syntax;
+  }
+  .syntax--variable.syntax--other.syntax--readwrite.syntax--module {
+    ._instance-var;
+  }
+  .syntax--unused {
+    color: @LAVANDER_DARK;
   }
 }
 // Elixir end
@@ -389,12 +409,6 @@ atom-text-editor .line.cursor-line.highlight-line {
   }
   .syntax--constant.syntax--other.syntax--symbol {
     ._atom;
-  }
-  .syntax--punctuation.syntax--section.syntax--array {
-    color: @BLUE_SKY;
-  }
-  .syntax--string.syntax--quoted.syntax--other {
-    color: @BLUE_SKY_LIGHT;
   }
   .syntax--entity.syntax--other.syntax--inherited-class {
     color: @PINK_DARKER;

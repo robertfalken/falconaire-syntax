@@ -1,5 +1,7 @@
 # Just a comment
 
+@atoms ~w(one two three)a
+
 defmodule Falconaire.Demo do
   def method(arg \\ %{}) do
     arg
