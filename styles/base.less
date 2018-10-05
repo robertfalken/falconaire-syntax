@@ -89,9 +89,6 @@ atom-text-editor {
     color: @syntax-text-color;
   }
 
-  &.syntax--generator.syntax--asterisk {
-    color: @PINK;
-  }
 }
 
 .syntax--constant {
@@ -290,6 +287,14 @@ atom-text-editor {
   }
 }
 
+// Special symtax
+.syntax--keyword.syntax--operator.syntax--arithmetic,
+.syntax--generator.syntax--asterisk,
+.syntax--keyword.syntax--operator.syntax--spread,
+.syntax--storage.syntax--type.syntax--function.syntax--arrow {
+  color: @PINK;
+}
+
 .syntax--punctuation.syntax--definition.syntax--quasi,
 .syntax--punctuation.syntax--definition.syntax--string {
   ._surrounding-strings;
@@ -360,6 +365,8 @@ atom-text-editor .line.cursor-line.highlight-line {
   }
 }
 
+// vars and functions
+.syntax--storage.syntax--type,
 .syntax--keyword.syntax--control {
   color: @LAVANDER_LIGHT;
 }

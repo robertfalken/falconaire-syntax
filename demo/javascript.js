@@ -35,7 +35,6 @@ const arrowFunction({ param1, ...rest }) => ({
   three,
 });
 
-const FnComponent = () => (<div>Falconaire!</div>)
 class Component extends React.Component {
   render() {
     return (
