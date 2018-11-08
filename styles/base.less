@@ -410,10 +410,13 @@ atom-text-editor .line.cursor-line.highlight-line {
 
 
 // Ruby start
-.syntax--ruby {
+atom-text-editor[data-grammar="source ruby"] {
   .syntax--keyword.syntax--control.syntax--class {
     font-style: italic;
     color: @LAVANDER_LIGHT;
+  }
+  .syntax--variable.syntax--other.syntax--object.syntax--property {
+    color: @PINK;
   }
   .syntax--keyword.syntax--operator.syntax--arithmetic {
     color: @PINK;
@@ -426,6 +429,9 @@ atom-text-editor .line.cursor-line.highlight-line {
   }
   .syntax--variable.syntax--other.syntax--constant {
     color: @APRICOT_LIGHT;
+  }
+  .syntax--constant.syntax--other.syntax--symbol {
+    color: @BLUE_SKY_LIGHT;
   }
 }
 // Ruby end

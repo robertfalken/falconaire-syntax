@@ -25,6 +25,11 @@ module FalconaireModule
     end
 
     def method(arg: nil, &block)
+      begin
+        yield block
+      rescue => _exeption
+        nil
+      end
     end
   end
 end
